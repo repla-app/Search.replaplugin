@@ -29,6 +29,14 @@ module WebConsole
     result.chomp!
     return result
   end
+  
+  RUN_PLUGIN_IN_SPLIT_SCRIPT = File.join(APPLESCRIPT_DIRECTORY, "run_plugin_in_split.scpt")
+  def self.run_plugin_in_split(name, window_id, split_id)
+    parameters = [name, window_id, split_id]
+    result = self.run_applescript(RUN_PLUGIN_IN_SPLIT_SCRIPT, parameters)
+    result.chomp!
+    return result
+  end
 
   PLUGIN_HAS_WINDOWS_SCRIPT = File.join(APPLESCRIPT_DIRECTORY, "plugin_has_windows.scpt")
   def self.plugin_has_windows(name)
@@ -44,6 +52,33 @@ module WebConsole
   WINDOW_ID_FOR_PLUGIN_SCRIPT = File.join(APPLESCRIPT_DIRECTORY, "window_id_for_plugin.scpt")
   def self.window_id_for_plugin(name)
     result = self.run_applescript(WINDOW_ID_FOR_PLUGIN_SCRIPT, [name])
+    result.chomp!
+    return result
+  end
+
+  SPLIT_ID_IN_WINDOW_SCRIPT = File.join(APPLESCRIPT_DIRECTORY, "split_id_in_window.scpt")
+  def self.split_id_in_window(window_id, pluginName = nil)
+    arguments = [window_id]
+
+    if pluginName
+      arguments.push(pluginName)
+    end
+
+    result = self.run_applescript(SPLIT_ID_IN_WINDOW_SCRIPT, arguments)
+    result.chomp!
+
+    if result.empty?
+      # TODO: Remove this when doing `run_applescript` refactor
+      return nil
+    end
+
+    return result
+  end
+
+  SPLIT_ID_IN_WINDOW_LAST_SCRIPT = File.join(APPLESCRIPT_DIRECTORY, "split_id_in_window_last.scpt")
+  def self.split_id_in_window_last(window_id)
+    arguments = [window_id]
+    result = self.run_applescript(SPLIT_ID_IN_WINDOW_LAST_SCRIPT, arguments)
     result.chomp!
     return result
   end
@@ -106,6 +141,14 @@ module WebConsole
         end
       }
     end
-    return `#{command}`
+
+    result = `#{command}`
+
+    # TODO: Figure out a better way to do this when doing `run_applescript` refactor
+    # if result.chomp.empty?
+    #   return nil
+    # end
+
+    return result
   end
 end
