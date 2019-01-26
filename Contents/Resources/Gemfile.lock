@@ -2,17 +2,17 @@ GEM
   remote: https://rubygems.org/
   specs:
     json (2.1.0)
-    webconsole (0.2.1)
+    repla (0.3.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   json
-  webconsole
+  repla
 
 RUBY VERSION
    ruby 2.3.7p456
 
 BUNDLED WITH
-   1.17.2
+   2.0.1
