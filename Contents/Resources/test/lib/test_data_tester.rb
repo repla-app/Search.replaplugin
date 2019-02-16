@@ -1,4 +1,4 @@
-require "test/unit"
+require 'test/unit'
 module Repla::Search
   module Test
     module TestDataTester
@@ -10,19 +10,18 @@ module Repla::Search
 
           test_file = test_files_hash[file_path]
           file = files_hash[file_path]
-      
+
           if test_file.file_path != file.file_path
             puts "File path #{file.file_path} should match #{test_file.file_path}."
             return false
           end
-          
+
           if test_file.display_file_path != file.display_file_path
             puts "Display file path #{file.display_file_path} should match #{test_file.display_file_path}."
             return false
           end
 
           test_file.lines.zip(file.lines).each do |test_line, line|
-
             if test_line.number != line.number
               puts "Line number #{line.number} should match #{test_line.number}."
               return false
@@ -39,14 +38,10 @@ module Repla::Search
                 return false
               end
             end
-
           end
-
         end
-        return tested_at_least_one
-
+        tested_at_least_one
       end
-  
     end
   end
 end

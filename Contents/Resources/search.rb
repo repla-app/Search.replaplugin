@@ -2,13 +2,13 @@
 
 require 'Shellwords'
 
-require_relative "bundle/bundler/setup"
-require "repla"
+require_relative 'bundle/bundler/setup'
+require 'repla'
 
-require_relative "lib/dependencies"
-require_relative "lib/constants"
-require_relative "lib/parser"
-require_relative "lib/controller"
+require_relative 'lib/dependencies'
+require_relative 'lib/constants'
+require_relative 'lib/parser'
+require_relative 'lib/controller'
 
 passed = Repla::Search.check_dependencies
 exit 1 unless passed
@@ -17,7 +17,7 @@ exit 1 unless passed
 controller = Repla::Search::Controller.new
 
 directory = ARGV[1].dup if ARGV[1]
-directory = `pwd` unless directory
+directory ||= `pwd`
 
 parser = Repla::Search::Parser.new(controller, directory)
 

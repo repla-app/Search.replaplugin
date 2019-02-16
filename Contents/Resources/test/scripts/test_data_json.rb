@@ -5,15 +5,15 @@ require 'json'
 require 'Shellwords'
 require 'pathname'
 
-require_relative "../lib/test_script_constants"
-require_relative "../lib/test_data_constants"
+require_relative '../lib/test_script_constants'
+require_relative '../lib/test_data_constants'
 
 command = "#{TEST_DATA_SEARCH_COMMAND} \"#{SEARCH_TERM}\" #{Shellwords.escape(TEST_DATA_DIRECTORY)}"
 match_lines = `#{command}`
 
 matches = []
 match_lines.each_line do |line_match|
-  match_hash = Hash.new
+  match_hash = {}
 
   result = /(.*):(.*):(.*)/.match(line_match)
   if result

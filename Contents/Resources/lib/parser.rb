@@ -1,21 +1,18 @@
 require 'pathname'
 
-require_relative "model"
-require_relative "constants"
+require_relative 'model'
+require_relative 'constants'
 
 module Repla::Search
-
   class Parser
-
     attr_writer :delegate
     def initialize(delegate = nil, directory = nil)
       @delegate = delegate
       @directory = directory
-      @files_hash = Hash.new
+      @files_hash = {}
     end
-   
-    def parse_line(output_line)
 
+    def parse_line(output_line)
       metadata_captures = output_line.match(METADATA_REGEXP).captures
       file_path = metadata_captures[0]
       file_path = File.expand_path(file_path) # Convert paths with .. to full paths
@@ -28,7 +25,7 @@ module Repla::Search
         file = Match::File.new(file_path, display_file_path)
         @files_hash[file_path] = file
 
-        @delegate.added_file(file) if @delegate 
+        @delegate.added_file(file) if @delegate
       end
 
       line_number = metadata_captures[1].to_i
@@ -39,20 +36,20 @@ module Repla::Search
       index = 0
       while index && index < text.length
         index = text.index(MATCH_REGEXP)
-        if index
-          matched_text = text.match(MATCH_REGEXP).captures[0]
-          text.sub!(MATCH_REGEXP, matched_text)
-          length = matched_text.length
+        next unless index
 
-          match = Match::File::Line::Match.new(index, length, line)
+        matched_text = text.match(MATCH_REGEXP).captures[0]
+        text.sub!(MATCH_REGEXP, matched_text)
+        length = matched_text.length
 
-          line.matches.push(match)
-        end                 
+        match = Match::File::Line::Match.new(index, length, line)
+
+        line.matches.push(match)
       end
       text.rstrip!
 
       line.text = text
-      
+
       @delegate.added_line_to_file(line, file) if @delegate
     end
   end

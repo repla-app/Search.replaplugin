@@ -4,8 +4,8 @@ module Repla::Search
       attr_reader :file_path, :display_file_path, :lines
       def initialize(file_path, display_file_path = nil)
         @file_path = file_path
-        @display_file_path = display_file_path ? display_file_path : file_path
-        @lines = Array.new
+        @display_file_path = display_file_path || file_path
+        @lines = []
       end
 
       class Line
@@ -13,7 +13,7 @@ module Repla::Search
         attr_accessor :text
         def initialize(number)
           @number = number
-          @matches = Array.new
+          @matches = []
         end
 
         class Match
@@ -28,7 +28,6 @@ module Repla::Search
             @line.text[index..(index + length - 1)]
           end
         end
-
       end
     end
   end
