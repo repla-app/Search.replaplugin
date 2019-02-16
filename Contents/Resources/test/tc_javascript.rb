@@ -61,7 +61,8 @@ var matches = [
     length: 7
   }
 ];
-var text = 'WCSEARCH_FILE = File.join(File.dirname(__FILE__), "..", \\\'eiusmod.rb\\\')';
+var text =
+'WCSEARCH_FILE = File.join(File.dirname(__FILE__), "..", \\\'eiusmod.rb\\\')';
 textWithMatchesProcessed(text, 0, matches);]
     result = @view.do_javascript(javascript)
     assert(result == test_result, 'The result should match the test result.')
