@@ -1,7 +1,13 @@
+require_relative '../bundle/bundler/setup'
+require 'repla'
+require 'repla/lib/escape'
+
 require_relative 'model'
+
 
 module Repla::Search
   class View < Repla::View
+    using Escape
     ROOT_ACCESS_DIRECTORY = File.join(File.dirname(__FILE__), '../html')
     VIEW_TEMPLATE = File.join(ROOT_ACCESS_DIRECTORY, 'index.html')
 
