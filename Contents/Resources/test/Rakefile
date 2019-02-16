@@ -17,12 +17,14 @@ namespace :search do
   end
 
   task test_controller: [:test_parser] do
-    controller_tests_file = File.join(File.dirname(__FILE__), 'tc_controller.rb')
+    controller_tests_file = File.join(File.dirname(__FILE__),
+                                      'tc_controller.rb')
     ruby Shellwords.escape(controller_tests_file)
   end
 
   task test_javascript: [:test_controller] do
-    javascript_tests_file = File.join(File.dirname(__FILE__), 'tc_javascript.rb')
+    javascript_tests_file = File.join(File.dirname(__FILE__),
+                                      'tc_javascript.rb')
     ruby Shellwords.escape(javascript_tests_file)
   end
 

@@ -36,14 +36,16 @@ class TestSearch < Test::Unit::TestCase
     window_id = Repla::Test::Helper.window_id
     window = Repla::Window.new(window_id)
 
-    files_json = Repla::Search::Test::JavaScriptHelper.files_hash_for_window_manager(window)
+    javascript_helper = Repla::Search::Test::JavaScriptHelper
+    files_json = javascript_helper.files_hash_for_window_manager(window)
     files_hash = Repla::Search::Test::Parser.parse(files_json)
 
     test_data_json = Repla::Search::Test::TestData.test_data_json
     test_files_hash = Repla::Search::Test::Parser.parse(test_data_json)
 
-    file_hashes_match = Repla::Search::Test::TestDataTester.test_file_hashes(files_hash, test_files_hash)
-    assert(file_hashes_match, 'The file hashes should match.')
+    testdata_tester = Repla::Search::Test::TestDataTester
+    file_hashes_match = testdata_tester.test_file_hashes(files_hash, test_files_hash)
+    assert(file_hashes_match)
 
     window.close
   end
