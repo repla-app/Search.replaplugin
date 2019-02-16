@@ -6,6 +6,7 @@ require_relative 'model'
 
 module Repla
   module Search
+    # View
     class View < Repla::View
       using Escape
       ROOT_ACCESS_DIRECTORY = File.join(File.dirname(__FILE__), '../html')
