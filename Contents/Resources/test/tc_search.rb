@@ -4,7 +4,7 @@ require "test/unit"
 require 'Shellwords'
 
 require_relative '../bundle/bundler/setup'
-require 'webconsole'
+require 'repla'
 
 require WebConsole::shared_test_resource("ruby/test_constants")
 require WebConsole::Tests::TEST_HELPER_FILE

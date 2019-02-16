@@ -1,5 +1,5 @@
 require_relative '../bundle/bundler/setup'
-require 'webconsole/dependencies'
+require 'repla/dependencies'
 
 module WebConsole::Search
   def self.check_dependencies

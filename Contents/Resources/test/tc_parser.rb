@@ -3,7 +3,7 @@
 require "test/unit"
 
 require_relative '../bundle/bundler/setup'
-require 'webconsole'
+require 'repla'
 
 require_relative "lib/test_data_helper"
 require_relative "lib/test_data_parser"

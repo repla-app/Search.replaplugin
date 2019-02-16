@@ -1,5 +1,5 @@
 require_relative '../../bundle/bundler/setup'
-require 'webconsole'
+require 'repla'
 
 module WebConsole::Search
   module Tests
