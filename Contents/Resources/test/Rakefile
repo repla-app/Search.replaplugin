@@ -1,8 +1,9 @@
 require_relative '../bundle/bundler/setup'
-require 'repla'
 
-require Repla::shared_test_resource("ruby/test_constants")
-require Repla::Test::TEST_HELPER_FILE
+require 'repla/test'
+require Repla::Test::HELPER_FILE
+require Repla::Test::REPLA_FILE
+
 require 'shellwords'
 
 task :default => ['search:tests']

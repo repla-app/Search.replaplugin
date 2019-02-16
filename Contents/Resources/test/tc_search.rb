@@ -4,10 +4,9 @@ require "test/unit"
 require 'Shellwords'
 
 require_relative '../bundle/bundler/setup'
-require 'repla'
-
-require Repla::shared_test_resource("ruby/test_constants")
-require Repla::Test::TEST_HELPER_FILE
+require 'repla/test'
+require Repla::Test::HELPER_FILE
+require Repla::Test::REPLA_FILE
 
 require_relative "lib/test_data_helper"
 require_relative "lib/test_data_parser"
