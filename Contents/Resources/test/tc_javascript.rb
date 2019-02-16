@@ -9,8 +9,11 @@ require_relative '../lib/dependencies'
 require_relative '../lib/controller'
 
 # Test cases for some situations where `textWithMatchesProcessed` was failing.
-# To debug these situations: Run a test case and then use Web Console's Web Inspector to log console messages from the `textWithMatchesProcessed` JavaScript.
+# To debug these situations: Run a test case and then use Web Console's Web
+# Inspector to log console messages from the `textWithMatchesProcessed`
+# JavaScript.
 
+# Test dependencies
 class TestDependencies < Test::Unit::TestCase
   def test_dependencies
     passed = Repla::Search.check_dependencies
@@ -18,6 +21,7 @@ class TestDependencies < Test::Unit::TestCase
   end
 end
 
+# Test JavaScript
 class TestJavaScript < Test::Unit::TestCase
   def setup
     @view = Repla::Search::View.new
@@ -28,7 +32,8 @@ class TestJavaScript < Test::Unit::TestCase
   end
 
   def test_javascript_escape
-    test_result = '&lt;string&gt;<strong>eiusmod</strong>&#x2F;<strong>eiusmod</strong>.rb&lt;&#x2F;string&gt;'
+    test_result = '&lt;string&gt;<strong>eiusmod</strong>&#x2F;'\
+      '<strong>eiusmod</strong>.rb&lt;&#x2F;string&gt;'
     javascript = %[
 var matches = [
   {
@@ -47,7 +52,8 @@ textWithMatchesProcessed(text, 0, matches);]
   end
 
   def test_contains_quote
-    test_result = 'WCSEARCH_FILE = File.join(File.dirname(__FILE__), &quot;..&quot;, &#39;<strong>eiusmod</strong>.rb&#39;)'
+    test_result = 'WCSEARCH_FILE = File.join(File.dirname(__FILE__), '\
+      '&quot;..&quot;, &#39;<strong>eiusmod</strong>.rb&#39;)'
     javascript = %[
 var matches = [
   {
