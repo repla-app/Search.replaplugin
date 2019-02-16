@@ -9,3 +9,5 @@ lint:
 autocorrect:
 	rubocop -a
 
+test:
+	./Contents/Resources/test/run_tests.sh
