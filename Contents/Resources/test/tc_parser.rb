@@ -13,6 +13,7 @@ require_relative 'lib/test_data_tester'
 require_relative '../lib/dependencies'
 require_relative '../lib/parser'
 
+# Test dependencies
 class TestDependencies < Test::Unit::TestCase
   def test_dependencies
     passed = Repla::Search.check_dependencies
@@ -20,6 +21,7 @@ class TestDependencies < Test::Unit::TestCase
   end
 end
 
+# Test parser
 class TestParser < Test::Unit::TestCase
   def test_parser
     test_search_output = Repla::Search::Test::TestData.test_search_output
@@ -32,7 +34,9 @@ class TestParser < Test::Unit::TestCase
     test_data_json = Repla::Search::Test::TestData.test_data_json
     test_files_hash = Repla::Search::Test::Parser.parse(test_data_json)
 
-    file_hashes_match = Repla::Search::Test::TestDataTester.test_file_hashes(files_hash, test_files_hash)
-    assert(file_hashes_match, 'The file hashes should match.')
+    test_data_tester = Repla::Search::Test::TestDataTester
+    file_hashes_match = test_data_tester.test_file_hashes(files_hash,
+                                                          test_files_hash)
+    assert(file_hashes_match)
   end
 end

@@ -15,6 +15,7 @@ require_relative 'lib/test_data_tester'
 
 require_relative '../lib/dependencies'
 
+# Test dependencies
 class TestDependencies < Test::Unit::TestCase
   def test_dependencies
     passed = Repla::Search.check_dependencies
@@ -22,12 +23,14 @@ class TestDependencies < Test::Unit::TestCase
   end
 end
 
+# Test search
 class TestSearch < Test::Unit::TestCase
   SEARCH_FILE = File.join(File.dirname(__FILE__), '..', 'search.rb')
   def test_controller
     test_data_directory = Repla::Search::Test::TestData.test_data_directory
     test_search_term = Repla::Search::Test::TestData.test_search_term
-    command = "#{Shellwords.escape(SEARCH_FILE)} \"#{test_search_term}\" #{Shellwords.escape(test_data_directory)}"
+    command = "#{Shellwords.escape(SEARCH_FILE)} \"#{test_search_term}\""\
+      " #{Shellwords.escape(test_data_directory)}"
     `#{command}`
 
     window_id = Repla::Test::Helper.window_id
