@@ -7,7 +7,7 @@ require_relative '../bundle/bundler/setup'
 require 'repla'
 
 require Repla::shared_test_resource("ruby/test_constants")
-require Repla::Tests::TEST_HELPER_FILE
+require Repla::Test::TEST_HELPER_FILE
 
 require_relative "lib/test_data_helper"
 require_relative "lib/test_data_parser"
@@ -32,7 +32,7 @@ class TestSearch < Test::Unit::TestCase
     command = "#{Shellwords.escape(SEARCH_FILE)} \"#{test_search_term}\" #{Shellwords.escape(test_data_directory)}"
     `#{command}`
 
-    window_id = Repla::Tests::Helper::window_id
+    window_id = Repla::Test::Helper::window_id
     window = Repla::Window.new(window_id)
 
     files_json = Repla::Search::Tests::JavaScriptHelper::files_hash_for_window_manager(window)
