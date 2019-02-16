@@ -69,7 +69,9 @@ textWithMatchesProcessed(text, 0, matches);]
   end
 
   def test_matching_first
-    test_result = '    <strong>eiusmod</strong>_tests_file = File.join(File.dirname(__FILE__), &quot;tc_<strong>eiusmod</strong>.rb&quot;)'
+    test_result = '    <strong>eiusmod</strong>_tests_file = '\
+      'File.join(File.dirname(__FILE__), '\
+      '&quot;tc_<strong>eiusmod</strong>.rb&quot;)'
     javascript = %[
 var matches = [
   {
@@ -81,14 +83,16 @@ var matches = [
     length: 7
   }
 ];
-var text = '    eiusmod_tests_file = File.join(File.dirname(__FILE__), "tc_eiusmod.rb")';
+var text =
+'    eiusmod_tests_file = File.join(File.dirname(__FILE__), "tc_eiusmod.rb")';
 textWithMatchesProcessed(text, 0, matches);]
     result = @view.do_javascript(javascript)
     assert(result == test_result, 'The result should match the test result.')
   end
 
   def test_matching_html
-    test_result = '<strong>&lt;eiusmod&gt;</strong><strong>eiusmod</strong>&#x2F;<strong>eiusmod</strong>.rb<strong>&lt;/eiusmod&gt;</strong>'
+    test_result = '<strong>&lt;eiusmod&gt;</strong><strong>eiusmod</strong>'\
+      '&#x2F;<strong>eiusmod</strong>.rb<strong>&lt;/eiusmod&gt;</strong>'
     javascript = %[
 var matches = [
   {
