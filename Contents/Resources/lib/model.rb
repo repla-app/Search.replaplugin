@@ -1,4 +1,4 @@
-module WebConsole::Search
+module Repla::Search
   module Match
     class File
       attr_reader :file_path, :display_file_path, :lines

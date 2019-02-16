@@ -13,7 +13,7 @@ require_relative "../lib/controller"
 
 class TestDependencies < Test::Unit::TestCase
   def test_dependencies
-    passed = WebConsole::Search.check_dependencies
+    passed = Repla::Search.check_dependencies
     assert(passed, "The dependencies check should have passed.")
   end
 end
@@ -21,7 +21,7 @@ end
 class TestJavaScript < Test::Unit::TestCase
 
   def setup
-    @view = WebConsole::Search::View.new
+    @view = Repla::Search::View.new
   end
   
   def teardown

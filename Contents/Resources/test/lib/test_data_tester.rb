@@ -1,5 +1,5 @@
 require "test/unit"
-module WebConsole::Search
+module Repla::Search
   module Tests
     module TestDataTester
       def self.test_file_hashes(files_hash, test_files_hash)

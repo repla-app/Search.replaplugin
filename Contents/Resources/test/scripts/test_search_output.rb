@@ -3,7 +3,7 @@
 require 'Shellwords'
 
 # Declare the module otherwise importing "grep_constants.rb" will fail
-module WebConsole
+module Repla
 end
 
 require_relative "../lib/test_script_constants"

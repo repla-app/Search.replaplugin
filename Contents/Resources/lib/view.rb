@@ -1,7 +1,7 @@
 require_relative 'model'
 
-module WebConsole::Search
-  class View < WebConsole::View
+module Repla::Search
+  class View < Repla::View
     BASE_DIRECTORY = File.join(File.dirname(__FILE__), '..')
     VIEWS_DIRECTORY = File.join(BASE_DIRECTORY, "views")
     VIEW_TEMPLATE = File.join(VIEWS_DIRECTORY, 'view.html.erb')

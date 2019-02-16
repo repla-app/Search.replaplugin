@@ -1,7 +1,7 @@
 require_relative '../../bundle/bundler/setup'
 require 'repla'
 
-module WebConsole::Search
+module Repla::Search
   module Tests
     module JavaScriptHelper
       JAVASCRIPT_DIRECTORY = File.join(File.dirname(__FILE__), "..", "js")

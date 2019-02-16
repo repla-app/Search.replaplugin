@@ -3,7 +3,7 @@ require 'json'
 
 require_relative "test_data_constants"
 
-module WebConsole::Search
+module Repla::Search
   module Tests
     module Parser
 

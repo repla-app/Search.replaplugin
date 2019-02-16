@@ -10,16 +10,16 @@ require_relative "lib/constants"
 require_relative "lib/parser"
 require_relative "lib/controller"
 
-passed = WebConsole::Search.check_dependencies
+passed = Repla::Search.check_dependencies
 exit 1 unless passed
 
 # Parser
-controller = WebConsole::Search::Controller.new
+controller = Repla::Search::Controller.new
 
 directory = ARGV[1].dup if ARGV[1]
 directory = `pwd` unless directory
 
-parser = WebConsole::Search::Parser.new(controller, directory)
+parser = Repla::Search::Parser.new(controller, directory)
 
 # Parse
 term = ARGV[0]

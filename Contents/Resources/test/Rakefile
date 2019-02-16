@@ -1,8 +1,8 @@
 require_relative '../bundle/bundler/setup'
 require 'repla'
 
-require WebConsole::shared_test_resource("ruby/test_constants")
-require WebConsole::Tests::TEST_HELPER_FILE
+require Repla::shared_test_resource("ruby/test_constants")
+require Repla::Tests::TEST_HELPER_FILE
 require 'shellwords'
 
 task :default => ['search:tests']
@@ -32,6 +32,6 @@ namespace :search do
   end
 
   task :clean_up => [:test_search] do
-    WebConsole::Tests::Helper::quit
+    Repla::Tests::Helper::quit
   end
 end
