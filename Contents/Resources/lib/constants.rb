@@ -1,1 +1,1 @@
-require_relative "grep_constants"
+require_relative 'grep_constants'
