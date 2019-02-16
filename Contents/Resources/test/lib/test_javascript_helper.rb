@@ -2,7 +2,7 @@ require_relative '../../bundle/bundler/setup'
 require 'repla'
 
 module Repla::Search
-  module Tests
+  module Test
     module JavaScriptHelper
       JAVASCRIPT_DIRECTORY = File.join(File.dirname(__FILE__), "..", "js")
       DOMTOJSON_JAVASCRIPT_FILE = File.join(JAVASCRIPT_DIRECTORY, "dom_to_json.js")

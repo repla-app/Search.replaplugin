@@ -1,6 +1,6 @@
 require "test/unit"
 module Repla::Search
-  module Tests
+  module Test
     module TestDataTester
       def self.test_file_hashes(files_hash, test_files_hash)
         tested_at_least_one = false

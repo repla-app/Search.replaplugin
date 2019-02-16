@@ -26,20 +26,20 @@ end
 class TestController < Test::Unit::TestCase
 
   def test_controller
-    test_search_output = Repla::Search::Tests::TestData::test_search_output
-    test_data_directory = Repla::Search::Tests::TestData::test_data_directory
+    test_search_output = Repla::Search::Test::TestData::test_search_output
+    test_data_directory = Repla::Search::Test::TestData::test_data_directory
 
     controller = Repla::Search::Controller.new
     parser = Repla::Search::Parser.new(controller, test_data_directory)
     parser.parse(test_search_output)
 
-    files_json = Repla::Search::Tests::JavaScriptHelper::files_hash_for_window_manager(controller.view)
-    files_hash = Repla::Search::Tests::Parser::parse(files_json)
+    files_json = Repla::Search::Test::JavaScriptHelper::files_hash_for_window_manager(controller.view)
+    files_hash = Repla::Search::Test::Parser::parse(files_json)
 
-    test_data_json = Repla::Search::Tests::TestData::test_data_json
-    test_files_hash = Repla::Search::Tests::Parser::parse(test_data_json)
+    test_data_json = Repla::Search::Test::TestData::test_data_json
+    test_files_hash = Repla::Search::Test::Parser::parse(test_data_json)
 
-    file_hashes_match = Repla::Search::Tests::TestDataTester::test_file_hashes(files_hash, test_files_hash)
+    file_hashes_match = Repla::Search::Test::TestDataTester::test_file_hashes(files_hash, test_files_hash)
     assert(file_hashes_match, "The file hashes should match.")
 
     controller.view.close

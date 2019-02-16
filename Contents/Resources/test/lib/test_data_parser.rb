@@ -4,7 +4,7 @@ require 'json'
 require_relative "test_data_constants"
 
 module Repla::Search
-  module Tests
+  module Test
     module Parser
 
       def self.parse(json)

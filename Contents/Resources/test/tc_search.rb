@@ -27,21 +27,21 @@ class TestSearch < Test::Unit::TestCase
 
   SEARCH_FILE = File.join(File.dirname(__FILE__), "..", 'search.rb')
   def test_controller
-    test_data_directory = Repla::Search::Tests::TestData::test_data_directory
-    test_search_term = Repla::Search::Tests::TestData::test_search_term
+    test_data_directory = Repla::Search::Test::TestData::test_data_directory
+    test_search_term = Repla::Search::Test::TestData::test_search_term
     command = "#{Shellwords.escape(SEARCH_FILE)} \"#{test_search_term}\" #{Shellwords.escape(test_data_directory)}"
     `#{command}`
 
     window_id = Repla::Test::Helper::window_id
     window = Repla::Window.new(window_id)
 
-    files_json = Repla::Search::Tests::JavaScriptHelper::files_hash_for_window_manager(window)
-    files_hash = Repla::Search::Tests::Parser::parse(files_json)
+    files_json = Repla::Search::Test::JavaScriptHelper::files_hash_for_window_manager(window)
+    files_hash = Repla::Search::Test::Parser::parse(files_json)
 
-    test_data_json = Repla::Search::Tests::TestData::test_data_json
-    test_files_hash = Repla::Search::Tests::Parser::parse(test_data_json)
+    test_data_json = Repla::Search::Test::TestData::test_data_json
+    test_files_hash = Repla::Search::Test::Parser::parse(test_data_json)
 
-    file_hashes_match = Repla::Search::Tests::TestDataTester::test_file_hashes(files_hash, test_files_hash)
+    file_hashes_match = Repla::Search::Test::TestDataTester::test_file_hashes(files_hash, test_files_hash)
     assert(file_hashes_match, "The file hashes should match.")
 
     window.close

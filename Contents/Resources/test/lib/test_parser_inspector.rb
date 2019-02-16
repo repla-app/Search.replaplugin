@@ -1,5 +1,5 @@
 module Repla::Search
-  class Tests
+  class Test
     class ParserInspector
       def added_file(file)
         puts "added_file file = " + file.inspect
