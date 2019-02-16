@@ -44,7 +44,8 @@ class TestSearch < Test::Unit::TestCase
     test_files_hash = Repla::Search::Test::Parser.parse(test_data_json)
 
     testdata_tester = Repla::Search::Test::TestDataTester
-    file_hashes_match = testdata_tester.test_file_hashes(files_hash, test_files_hash)
+    file_hashes_match = testdata_tester.test_file_hashes(files_hash,
+                                                         test_files_hash)
     assert(file_hashes_match)
 
     window.close
