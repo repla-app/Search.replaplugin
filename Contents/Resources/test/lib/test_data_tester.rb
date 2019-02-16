@@ -39,11 +39,11 @@ module Repla
               end
 
               test_line.matches.zip(line.matches).each do |test_match, match|
-                if test_match.text != match.text
-                  puts "Match text #{match.text} should match "\
-                    "#{test_match.text}."
-                  return false
-                end
+                next if test_match.text == match.text
+
+                puts "Match text #{match.text} should match "\
+                  "#{test_match.text}."
+                return false
               end
             end
           end
