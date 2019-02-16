@@ -27,7 +27,8 @@ directory.chomp!
 
 exit 1 unless term && directory
 
-command = "#{SEARCH_COMMAND} #{Shellwords.escape(term)} #{Shellwords.escape(directory)}"
+command = "#{SEARCH_COMMAND} #{Shellwords.escape(term)}"\
+  " #{Shellwords.escape(directory)}"
 pipe = IO.popen(command)
 while (line = pipe.gets)
   parser.parse_line(line)
