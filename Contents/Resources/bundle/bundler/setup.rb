@@ -6,4 +6,4 @@ path = File.expand_path('..', __FILE__)
 $:.unshift "#{path}/"
 $:.unshift "#{path}/../#{ruby_engine}/#{ruby_version}/extensions/universal-darwin-18/2.3.0/json-2.1.0"
 $:.unshift "#{path}/../#{ruby_engine}/#{ruby_version}/gems/json-2.1.0/lib"
-$:.unshift "#{path}/../#{ruby_engine}/#{ruby_version}/gems/repla-0.6.1/lib"
+$:.unshift "#{path}/../#{ruby_engine}/#{ruby_version}/gems/repla-0.6.2/lib"
