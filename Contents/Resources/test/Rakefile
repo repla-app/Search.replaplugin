@@ -34,6 +34,5 @@ namespace :search do
   end
 
   task clean_up: [:test_search] do
-    Repla::Test::Helper.quit
   end
 end
