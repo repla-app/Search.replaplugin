@@ -1,4 +1,4 @@
-require 'test/unit'
+require 'minitest/autorun'
 module Repla
   module Search
     module Test
