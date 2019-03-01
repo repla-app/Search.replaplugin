@@ -1,6 +1,6 @@
 #!/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby
 
-require 'test/unit'
+require 'minitest/autorun'
 
 require_relative '../bundle/bundler/setup'
 require 'repla'
@@ -16,7 +16,7 @@ require_relative '../lib/parser'
 require_relative '../lib/controller'
 
 # Test dependencies
-class TestDependencies < Test::Unit::TestCase
+class TestDependencies < Minitest::Test
   def test_dependencies
     passed = Repla::Search.check_dependencies
     assert(passed, 'The dependencies check should have passed.')
@@ -24,7 +24,7 @@ class TestDependencies < Test::Unit::TestCase
 end
 
 # Test controller
-class TestController < Test::Unit::TestCase
+class TestController < Minitest::Test
   def test_controller
     test_search_output = Repla::Search::Test::TestData.test_search_output
     test_data_directory = Repla::Search::Test::TestData.test_data_directory

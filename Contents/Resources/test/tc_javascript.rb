@@ -1,6 +1,6 @@
 #!/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby
 
-require 'test/unit'
+require 'minitest/autorun'
 
 require_relative '../bundle/bundler/setup'
 require 'repla'
@@ -14,7 +14,7 @@ require_relative '../lib/controller'
 # JavaScript.
 
 # Test dependencies
-class TestDependencies < Test::Unit::TestCase
+class TestDependencies < Minitest::Test
   def test_dependencies
     passed = Repla::Search.check_dependencies
     assert(passed, 'The dependencies check should have passed.')
@@ -22,7 +22,7 @@ class TestDependencies < Test::Unit::TestCase
 end
 
 # Test JavaScript
-class TestJavaScript < Test::Unit::TestCase
+class TestJavaScript < Minitest::Test
   def setup
     @view = Repla::Search::View.new
   end

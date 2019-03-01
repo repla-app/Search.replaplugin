@@ -1,6 +1,6 @@
 #!/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby
 
-require 'test/unit'
+require 'minitest/autorun'
 require 'Shellwords'
 
 require_relative '../bundle/bundler/setup'
@@ -16,7 +16,7 @@ require_relative 'lib/test_data_tester'
 require_relative '../lib/dependencies'
 
 # Test dependencies
-class TestDependencies < Test::Unit::TestCase
+class TestDependencies < Minitest::Test
   def test_dependencies
     passed = Repla::Search.check_dependencies
     assert(passed, 'The dependencies check should have passed.')
@@ -24,7 +24,7 @@ class TestDependencies < Test::Unit::TestCase
 end
 
 # Test search
-class TestSearch < Test::Unit::TestCase
+class TestSearch < Minitest::Test
   SEARCH_FILE = File.join(File.dirname(__FILE__), '..', 'search.rb')
   def test_controller
     test_data_directory = Repla::Search::Test::TestData.test_data_directory
