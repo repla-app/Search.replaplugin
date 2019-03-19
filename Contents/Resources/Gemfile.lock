@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     json (2.2.0)
-    repla (0.7.0)
+    repla (0.7.5)
 
 PLATFORMS
   ruby
