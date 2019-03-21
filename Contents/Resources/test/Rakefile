@@ -12,24 +12,24 @@ namespace :search do
   task tests: [:clean_up]
 
   task :test_parser do
-    parser_tests_file = File.join(File.dirname(__FILE__), 'tc_parser.rb')
+    parser_tests_file = File.join(__dir__, 'tc_parser.rb')
     ruby Shellwords.escape(parser_tests_file)
   end
 
   task test_controller: [:test_parser] do
-    controller_tests_file = File.join(File.dirname(__FILE__),
+    controller_tests_file = File.join(__dir__,
                                       'tc_controller.rb')
     ruby Shellwords.escape(controller_tests_file)
   end
 
   task test_javascript: [:test_controller] do
-    javascript_tests_file = File.join(File.dirname(__FILE__),
+    javascript_tests_file = File.join(__dir__,
                                       'tc_javascript.rb')
     ruby Shellwords.escape(javascript_tests_file)
   end
 
   task test_search: [:test_javascript] do
-    search_tests_file = File.join(File.dirname(__FILE__), 'tc_search.rb')
+    search_tests_file = File.join(__dir__, 'tc_search.rb')
     ruby Shellwords.escape(search_tests_file)
   end
 
