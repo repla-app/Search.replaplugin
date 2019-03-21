@@ -7,7 +7,7 @@ module Repla
     module Test
       # Test data
       module TestData
-        TEST_SCRIPTS_DIRECTORY = File.join(File.dirname(__FILE__),
+        TEST_SCRIPTS_DIRECTORY = File.join(__dir__,
                                            '..',
                                            'scripts')
 

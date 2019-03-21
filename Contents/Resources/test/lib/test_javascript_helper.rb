@@ -6,7 +6,7 @@ module Repla
     module Test
       # JavaScript hlper
       module JavaScriptHelper
-        JAVASCRIPT_DIRECTORY = File.join(File.dirname(__FILE__), '..', 'js')
+        JAVASCRIPT_DIRECTORY = File.join(__dir__, '..', 'js')
         DOMTOJSON_JAVASCRIPT_FILE = File.join(JAVASCRIPT_DIRECTORY,
                                               'dom_to_json.js')
         def self.files_hash_for_window_manager(window_manager)

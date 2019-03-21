@@ -25,7 +25,7 @@ end
 
 # Test search
 class TestSearch < Minitest::Test
-  SEARCH_FILE = File.join(File.dirname(__FILE__), '..', 'search.rb')
+  SEARCH_FILE = File.join(__dir__, '..', 'search.rb')
   def test_controller
     test_data_directory = Repla::Search::Test::TestData.test_data_directory
     test_search_term = Repla::Search::Test::TestData.test_search_term
