@@ -25,4 +25,12 @@ AllCops:
     - '**/node_modules/**/*'
     - '**/vendor/**/*'
     - '**/bundle/**/*'
-
+Metrics/LineLength:
+  Exclude:
+    - 'Contents/Resources/test/tc_javascript.rb'
+    - 'Contents/Resources/test/tc_parser.rb'
+    - 'Contents/Resources/test/tc_search.rb'
+    - 'Contents/Resources/test/scripts/test_data_json.rb'
+    - 'Contents/Resources/test/scripts/test_search_output.rb'
+    - 'Contents/Resources/test/tc_controller.rb'
+    - 'Contents/Resources/search.rb'
