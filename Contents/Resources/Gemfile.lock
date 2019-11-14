@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     json (2.2.0)
-    repla (0.8.4)
+    repla (0.10.4)
 
 PLATFORMS
   ruby
@@ -12,7 +12,7 @@ DEPENDENCIES
   repla
 
 RUBY VERSION
-   ruby 2.3.7p456
+   ruby 2.4.1p111
 
 BUNDLED WITH
-   2.0.1
+   2.0.2
