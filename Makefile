@@ -1,10 +1,13 @@
-.PHONY: ci ac autocorrect lint
+.PHONY: ci ac autocorrect lint gem_install
 
-ci: lint
+ci: gem_install lint
 ac: autocorrect
 
 lint:
 	rubocop
+
+gem_install:
+	bundle install --path vendor/bundle
 
 autocorrect:
 	rubocop -a
